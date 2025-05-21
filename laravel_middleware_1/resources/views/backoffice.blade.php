@@ -8,6 +8,8 @@
 <body>
     <h1>Backoffice</h1>
     <nav>
+        <!-- Ajoute dans le menu de gauche -->
+        <a href="{{ route('articles.index') }}">Gestion des articles</a>
         <a href="{{ route('accueil') }}">Accueil</a> |
         <a href="{{ route('article') }}">Article</a>
     </nav>
