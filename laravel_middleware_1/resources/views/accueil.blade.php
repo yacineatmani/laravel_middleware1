@@ -1,4 +1,3 @@
-<!-- filepath: resources/views/accueil.blade.php -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,10 +8,10 @@
     <h1>Accueil</h1>
     <nav>
         <a href="{{ route('article') }}">Article</a> |
-        <a href="{{ route('backoffice') }}">Backoffice</a>
-        <!-- Ajoute dans le <nav> -->
-<a href="{{ route('login') }}">Login</a> |
-<a href="{{ route('logout') }}">Logout</a>
+        <a href="{{ route('backoffice') }}">Backoffice</a> |
+        <a href="{{ route('login') }}">Login User</a> |
+        <a href="{{ route('login', ['role' => 'admin']) }}">Login Admin</a> |
+        <a href="{{ route('logout') }}">Logout</a>
     </nav>
 </body>
 </html>

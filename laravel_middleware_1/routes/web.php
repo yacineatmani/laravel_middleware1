@@ -11,10 +11,14 @@ Route::middleware('auth.custom')->group(function () {
     Route::get('/article', [ArticleController::class, 'index'])->name('article');
     Route::get('/backoffice', [BackofficeController::class, 'index'])->name('backoffice');
 });
+Route::middleware('role.verification')->group(function () {
+    Route::get('/article', [ArticleController::class, 'index'])->name('article');
+    Route::get('/backoffice', [BackofficeController::class, 'index'])->name('backoffice');
+});
 
-Route::get('/login', function () {
-    // Simule une connexion (stocke une variable en session)
+Route::get('/login/{role?}', function ($role = 'user') {
     Session::put('is_logged', true);
+    Session::put('role', $role);
     return redirect()->route('accueil');
 })->name('login');
 
