@@ -32,3 +32,8 @@ Route::get('/logout', function () {
     Session::forget('is_logged');
     return redirect()->route('accueil');
 })->name('logout');
+Route::middleware(['role.verification'])->group(function () {
+    Route::resource('articles', ArticleCrudController::class);
+    Route::get('/backoffice/users', [UserController::class, 'index'])->name('users.index');
+    // ...autres routes protégées...
+});
